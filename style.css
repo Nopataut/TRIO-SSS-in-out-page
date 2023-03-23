@@ -1,0 +1,51 @@
+
+body {
+  display: flex;
+  align-items: stretch;
+  font-family: sans-serif;
+  background: white;
+  color: black;
+  padding: 0%;
+}
+.container > img {
+  height: auto;
+  width: 100%;
+  text-align: center;
+}
+.container > h2{
+  align-self: center;  
+  font-size: 10vh;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0%;
+}
+
+/*.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0px;
+  padding: 2.5%;
+}
+.grid > div {
+  text-align: center;
+  padding: 0 0;
+  font-size: 30px;
+  height: 40vh;
+}
+body {
+  font-family: sans-serif;
+  background: white;
+  color: black;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+}*/
