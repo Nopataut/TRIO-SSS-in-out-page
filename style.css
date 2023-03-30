@@ -20,6 +20,7 @@ body {
   position: relative;
   bottom: 10vh;
   right: 0.25vw;
+  user-select: none;
   width: 11.5vw;
   border-radius: 1vw;
   border-color: black;
