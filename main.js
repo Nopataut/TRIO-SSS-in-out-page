@@ -4,7 +4,13 @@ let updateStatus = (tutor = "", override = true)=>{
     h = date.getHours();
     m = date.getMinutes();
     s = date.getSeconds();
-    let time = `${h}:${m}:${s}`;
+    let time
+    if (h > 12){
+        time = `${day} ${h-12}:${m}:${s} PM`;
+    }
+    else{
+        time = `${day} ${h}:${m}:${s} AM`;
+    }
     console.log(time);
     if (!override){
         switch(tutor) {
@@ -16,7 +22,7 @@ let updateStatus = (tutor = "", override = true)=>{
                     return false;
                 }
                 else if (day == 2 || day == 4){ // TuTh
-                    if ((h == 12 && m >= 15) || (12 < h < 15) || (h == 15 && m < 30)){ // 12:15 - 3:30 PM
+                    if ((h == 12 && m >= 15) || (h > 12 && h < 15) || (h == 15 && m < 30)){ // 12:15 - 3:30 PM
                         return true;
                     }
                     return false;
@@ -25,14 +31,14 @@ let updateStatus = (tutor = "", override = true)=>{
             break;
 
             case "Jasmine":
-                if (day == 1 || day == 3){ // MoWe
-                    if ((h >= 13 && h < 18)){ // 1:00 - 6:00 PM
-                        return true;
-                    }
-                    return false;
-                }
-                else if (day == 2 || day == 4){ // TuTh
-                    if ((h >= 10 && h < 12) || (h == 15 && m > 30) || (h > 15 && h < 18)){ // 10:00 AM - 12:00 PM, 3:30 - 6:00 PM
+                //if (day == 1 || day == 3){ // MoWe
+                //    if ((h >= 13 && h < 18)){ // 1:00 - 6:00 PM
+                //        return true;
+                //    }
+                //    return false;
+                //}
+                if (day == 2 || day == 4){ // TuTh
+                    if ((h >= 10 && h < 12) || (h == 15 && m >= 30) || (h > 15 && h < 18)){ // 10:00 AM - 12:00 PM, 3:30 - 6:00 PM
                         return true;
                     }
                     return false;
@@ -65,7 +71,6 @@ let status1 = status2 = status3 = false;
 
 setInterval(() => {
     h = updateStatus();
-    console.log(h)
     if (h == 0){
         override1 = override2 = override3 = false;
     }
