@@ -1,9 +1,9 @@
 let updateStatus = (tutor = "", override = true)=>{
     let date = new Date();
-    day = date.getDay();
-    h = date.getHours();
-    m = date.getMinutes();
-    s = date.getSeconds();
+    let day = date.getDay();
+    let h = date.getHours();
+    let m = date.getMinutes();
+    let s = date.getSeconds();
     let time
     if (h > 12){
         time = `${day} ${h-12}:${m}:${s} PM`;
@@ -54,7 +54,7 @@ let updateStatus = (tutor = "", override = true)=>{
                     return false;
                 }
                 else if (day == 3){ // We
-                    if ((h == 14 && m >= 15) || (14 < h < 17)){ // 2:15 - 5:00 PM
+                    if ((h == 14 && m >= 15) || (h > 14 && h < 17)){ // 2:15 - 5:00 PM
                         return true;
                     }
                     return false;
