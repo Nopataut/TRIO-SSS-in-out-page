@@ -15,46 +15,33 @@ let updateStatus = (tutor = "", override = true)=>{
     if (!override){
         switch(tutor) {
             case "Nopal":
-                if (day == 1 || day == 3){ // MoWe
-                    if ((h == 16 && m >= 15) || (h > 16 && h < 18)){ // 4:15 - 6:00 PM
+                // tuth 8-2 3:45-6
+                if (day == 2 || day == 4){ // TuTh
+                    if ((h > 8 && h < 14) || ((h > 16 && h < 18) || (h == 15 && m > 45))){ // 8:00 AM - 2:00 PM, 3:45 PM - 6:00 PM
                         return true;
                     }
                     return false;
-                }
+                }/*
                 else if (day == 2 || day == 4){ // TuTh
                     if ((h == 12 && m >= 15) || (h > 12 && h < 15) || (h == 15 && m < 30)){ // 12:15 - 3:30 PM
                         return true;
                     }
                     return false;
-                }
+                }*/
                 return false;
             break;
 
-            case "Jasmine":
-                //if (day == 1 || day == 3){ // MoWe
-                //    if ((h >= 13 && h < 18)){ // 1:00 - 6:00 PM
-                //        return true;
-                //    }
-                //    return false;
-                //}
+            case "Enrique": // tuth 8-4:30 we 10-2:30
                 if (day == 2 || day == 4){ // TuTh
-                    if ((h >= 10 && h < 12) || (h == 15 && m >= 30) || (h > 15 && h < 18)){ // 10:00 AM - 12:00 PM, 3:30 - 6:00 PM
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            break;
-
-            case "Enrique": // tuth 9-3 we 2:15-5
-                if (day == 2 || day == 4){ // TuTh
-                    if ((h >= 9 && h < 15)){ // 9:00 AM - 3:00 PM
-                        return true;
+                    if ((h >= 8 && h < 17) || (h == 16 && m < 30)){ // 8:00 AM - 4:30 PM
+                        if (!(h = 12 && m < 30)){ //lunch 12:00 PM - 12:30 PM
+                            return true; // in
+                        }
                     }
                     return false;
                 }
                 else if (day == 3){ // We
-                    if ((h == 14 && m >= 15) || (h > 14 && h < 17)){ // 2:15 - 5:00 PM
+                    if ((h == 14 && m < 30) || (h > 10 && h < 15)){ // 10:00 AM - 2:30 PM
                         return true;
                     }
                     return false;

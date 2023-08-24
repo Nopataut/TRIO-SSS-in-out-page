@@ -9,7 +9,7 @@ body {
 }
 .container > img {
   height: auto;
-  width: 100%;
+  width: 75%;
   text-align: center;
 }
 .container > h2{
